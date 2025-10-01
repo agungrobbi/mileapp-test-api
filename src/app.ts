@@ -54,6 +54,19 @@ if (env.NODE_ENV === 'production') {
 // Routes
 app.use('/api/auth', authRoutes)
 
+// FOR JOB TEST: Static csrf route based on timestamp and IP
+app.get('/api/csrf-token', (req: Request, res: Response) => {
+  const csrfToken = Buffer.from(`${Date.now()}-${req.ip}`).toString('base64')
+
+  res.json({
+    success: true,
+    data: {
+      csrfToken,
+      timestamp: new Date().toISOString(),
+    },
+  })
+})
+
 // Health check
 app.get('/health', (req: Request, res: Response) => {
   res.json({
