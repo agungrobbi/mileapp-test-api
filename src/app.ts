@@ -4,10 +4,10 @@ import helmet from 'helmet'
 import { StatusCodes } from 'http-status-codes'
 
 import { env } from '@/config/env'
-import { ApiResponse } from '@src/types'
-import { authRoutes } from '@src/modules/auth/auth.routes'
 import { ApiError } from '@src/lib/apiResponse'
 import { errorHandler } from '@src/middleware/error.middleware'
+import { authRoutes } from '@src/modules/auth/auth.routes'
+import { taskRoutes } from '@src/modules/tasks/task.routes'
 
 const app = express()
 
@@ -53,6 +53,7 @@ if (env.NODE_ENV === 'production') {
 
 // Routes
 app.use('/api/auth', authRoutes)
+app.use('/api/task', taskRoutes)
 
 // FOR JOB TEST: Static csrf route based on timestamp and IP
 app.get('/api/csrf-token', (req: Request, res: Response) => {
@@ -79,8 +80,8 @@ app.get('/health', (req: Request, res: Response) => {
   })
 })
 
-app.use((req: Request, res: Response) => {
-  new ApiError(StatusCodes.NOT_FOUND, 'Endpoint not found')
+app.use((req: Request, res: Response, next: NextFunction) => {
+  next(new ApiError(StatusCodes.NOT_FOUND, 'Endpoint not found'))
 })
 
 // Additional security headers

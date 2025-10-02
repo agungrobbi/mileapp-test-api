@@ -1,4 +1,4 @@
-import { IUser } from '@src/types'
+import { IUser, ITask } from '@src/types'
 
 export const users: IUser[] = [
   {
@@ -16,3 +16,108 @@ export const users: IUser[] = [
     role: 'user',
   },
 ]
+
+export let tasks: ITask[] = [
+  {
+    id: 1,
+    title: 'Complete project documentation',
+    description: 'Write comprehensive documentation for the new feature',
+    status: 'pending',
+    priority: 'high',
+    dueDate: '2024-02-15',
+    createdAt: new Date('2024-01-15'),
+    updatedAt: new Date('2024-01-15'),
+  },
+  {
+    id: 2,
+    title: 'Fix login authentication bug',
+    description: 'Handle edge cases in the authentication flow',
+    status: 'completed',
+    priority: 'high',
+    dueDate: '2024-02-10',
+    createdAt: new Date('2024-01-16'),
+    updatedAt: new Date('2024-01-17'),
+  },
+  {
+    id: 3,
+    title: 'Update UI components',
+    description: 'Modernize design system and update all components',
+    status: 'progress',
+    priority: 'medium',
+    dueDate: '2024-01-20',
+    createdAt: new Date('2024-01-10'),
+    updatedAt: new Date('2024-01-20'),
+  },
+  {
+    id: 4,
+    title: 'Code review session',
+    description: 'Review pull request #123 from the team',
+    status: 'review',
+    priority: 'low',
+    dueDate: '2024-02-18',
+    createdAt: new Date('2024-01-18'),
+    updatedAt: new Date('2024-01-18'),
+  },
+  {
+    id: 5,
+    title: 'Deploy to production',
+    description: 'Deploy version 2.0 to production environment',
+    status: 'pending',
+    priority: 'high',
+    dueDate: '2024-01-19',
+    createdAt: new Date('2024-01-12'),
+    updatedAt: new Date('2024-01-19'),
+  },
+  {
+    id: 6,
+    title: 'Refactor database queries',
+    description: 'Optimize slow SQL queries for better performance',
+    status: 'pending',
+    priority: 'medium',
+    dueDate: '2024-03-01',
+    createdAt: new Date('2024-01-20'),
+    updatedAt: new Date('2024-01-20'),
+  },
+  {
+    id: 7,
+    title: 'Design new landing page mockup',
+    description: 'Create wireframes and high-fidelity mockups for the marketing team',
+    status: 'review',
+    priority: 'high',
+    dueDate: '2024-02-25',
+    createdAt: new Date('2024-01-21'),
+    updatedAt: new Date('2024-01-23'),
+  },
+  {
+    id: 8,
+    title: 'Setup CI/CD pipeline',
+    description: 'Configure automated testing and deployment for the backend service',
+    status: 'completed',
+    priority: 'medium',
+    dueDate: '2024-01-30',
+    createdAt: new Date('2024-01-15'),
+    updatedAt: new Date('2024-01-28'),
+  },
+  {
+    id: 9,
+    title: 'Investigate memory leak',
+    description: 'Profile application performance and identify the source of the memory leak',
+    status: 'progress',
+    priority: 'low',
+    dueDate: '2024-03-10',
+    createdAt: new Date('2024-01-22'),
+    updatedAt: new Date('2024-01-22'),
+  },
+  {
+    id: 10,
+    title: 'Write unit tests for API endpoints',
+    description: 'Achieve 80% code coverage on the core API services',
+    status: 'pending',
+    priority: 'high',
+    dueDate: '2024-02-29',
+    createdAt: new Date('2024-01-24'),
+    updatedAt: new Date('2024-01-24'),
+  },
+]
+
+export let taskIdCounter = 11
