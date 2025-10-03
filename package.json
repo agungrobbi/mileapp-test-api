@@ -7,7 +7,7 @@
   "main": "src/app.ts",
   "scripts": {
     "dev": "dotenv -- tsx src/app.ts",
-    "start": "node dist/app.js",
+    "start": "node dist/src/app.js",
     "build": "tsc && ts-add-js-extension --dir=dist",
     "lint": "eslint . --fix",
     "format": "prettier --write ."
