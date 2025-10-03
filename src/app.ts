@@ -3,6 +3,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import { StatusCodes } from 'http-status-codes'
 
+import 'module-alias/register'
 import { env } from '@/config/env'
 import { ApiError } from '@src/lib/apiResponse'
 import { errorHandler } from '@src/middleware/error.middleware'
