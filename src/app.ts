@@ -97,13 +97,17 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.use(errorHandler)
 
 // App listen for development
-app.listen(env.PORT, () => {
-  if (env.NODE_ENV === 'development') {
-    console.log(`\nMock API server is running!`)
-    console.log(`URL: http://localhost:${env.PORT}`)
-    console.log(`Environment: ${env.NODE_ENV}`)
-    console.log(`Test Credentials:`)
-    console.log(`   Email: admin@gmail.com`)
-    console.log(`   Password: password\n`)
-  }
-})
+if (process.env.VERCEL !== '1') {
+  app.listen(env.PORT, () => {
+    if (env.NODE_ENV === 'development') {
+      console.log(`\nMock API server is running!`)
+      console.log(`URL: http://localhost:${env.PORT}`)
+      console.log(`Environment: ${env.NODE_ENV}`)
+      console.log(`Test Credentials:`)
+      console.log(`   Email: admin@gmail.com`)
+      console.log(`   Password: password\n`)
+    }
+  })
+}
+
+export default app
